@@ -1,0 +1,37 @@
+import numpy as np
+import math
+
+
+def compute_y_for_loop(start, end, step, a, b):
+    results = []
+    for x in np.arange(start, end, step):
+        y = b * math.log(a * x ** 2) + b * (math.log(x)) ** 2
+        results.append(y)
+    return results
+
+
+def compute_y_while_loop(start, end, step, a, b):
+    results = []
+    while start < end - 0.3:
+        y = b * math.log(a * start ** 2) + b * (math.log(start)) ** 2
+        results.append(y)
+        start += step
+    return results
+
+
+def main():
+    start_value = 1.0
+    end_value = 4.0
+    step_size = 0.3
+    a_value = 4.3
+    b_value = 5.4
+
+    for_results = compute_y_for_loop(start_value, end_value, step_size, a_value, b_value)
+    while_results = compute_y_while_loop(start_value, end_value, step_size, a_value, b_value)
+
+    print('Результаты с использованием цикла for:', for_results)
+    print('Результаты с использованием цикла while:', while_results)
+
+
+if __name__ == '__main__':
+    main()
